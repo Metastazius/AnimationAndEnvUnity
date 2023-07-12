@@ -413,7 +413,7 @@ public class csvReader : MonoBehaviour
 
             for (int k = 0; k < globalList.Count - 2; k++)
             {
-                for (int l = 0; l < globalList[k].Count; l += 3)
+                for (int l = 0; l < 32; l += 3)
                 {
                     Vector3 averageVector = new Vector3((globalList[k][l].x + globalList[k + 1][l].x + globalList[k + 2][l].x) / 3,
                                                         (globalList[k][l].y + globalList[k + 1][l].y + globalList[k + 2][l].y) / 3,
