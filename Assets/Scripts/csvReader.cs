@@ -13,7 +13,7 @@ public class csvReader : MonoBehaviour
     [SerializeField]
     private List<Vector3> pointList = new List<Vector3>();
     public List<GameObject> gameObjects = new List<GameObject>();
-
+    public List<List<Vector3>> globalList = new List<List<Vector3>>();
     private List<List<Vector3>> globalListCam1;
     private List<List<Vector3>> globalListCam2;
     private List<List<Vector3>> globalListCam3;
@@ -350,7 +350,7 @@ public class csvReader : MonoBehaviour
     public List<List<Vector3>> ReadCSVFile(string filename, bool takeMinY = false)
     {
         StreamReader strReader = new StreamReader(filename);
-        List<List<Vector3>> globalList = new List<List<Vector3>>();
+        
         
         bool endOfFile = false;
         if(takeMinY)
