@@ -38,6 +38,7 @@ public class CharacterIKController : MonoBehaviour
 
     void OnAnimatorIK()
     {
+ 
         if (csvreader != null)
         {
             position = csvreader.GetPositions();

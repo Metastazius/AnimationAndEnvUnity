@@ -47,7 +47,7 @@ public class csvReader : MonoBehaviour
     [SerializeField]
     private Button mediapipeBtn, xsenseBtn, mediapipeBtnVR, xsenseBtnVR;
     public Color darkgreen;
-    private bool mediapipeOrXsense = true; // true for mediapipe - false for xsense
+    public bool mediapipeOrXsense = true; // true for mediapipe - false for xsense
 
     [SerializeField]
     private TMP_Text text;
@@ -112,11 +112,12 @@ public class csvReader : MonoBehaviour
                 Application.Quit();
             #endif
         }
-
+        int ajust = 3;
         if (mediapipeOrXsense)
         {
             int frameCountOnVideo = camManager.GetFrameCount();
             int currentFrameOnVideo = camManager.GetFrameIndex();
+
 
             if (runExercice)
             {
@@ -125,16 +126,19 @@ public class csvReader : MonoBehaviour
                 {
                     for (int i = 0; i < pointList.Count; i++)
                     {
-                        /*if ((currentFrameOnVideo - frameDiff) < (nbframes - frameDiff - 3))
+                        if ((currentFrameOnVideo - frameDiff) < (nbframes - frameDiff - ajust))
                         {
+                            /*for(int j = 0; j <= ajust; j++)
+                            {
+                                position[i] = globalListCam4[currentFrameOnVideo - frameDiff + ajust][i]/ajust;
+                            }*/
                             position[i] = (globalListCam4[currentFrameOnVideo - frameDiff][i] + globalListCam4[currentFrameOnVideo - frameDiff + 1][i] + globalListCam4[currentFrameOnVideo - frameDiff + 2][i]) / 3.0f;
                         }
                         else
                         {
                             position[i] = globalListCam4[currentFrameOnVideo - frameDiff][i];
-                            Debug.Log("check");
-                        }*/
-                        position[i] = globalListCam4[currentFrameOnVideo - frameDiff][i];
+                        }
+                        //position[i] = globalListCam4[currentFrameOnVideo - frameDiff][i];
                         gameObjects[i].transform.position = position[i];
                         GetPositions();
                     }
@@ -411,16 +415,14 @@ public class csvReader : MonoBehaviour
 
             globalList.Add(pointList);
 
-            for (int k = 0; k < globalList.Count - 2; k++)
+            /*for (int k = 0; k < globalList.Count - 2; k++)
             {
-                for (int l = 0; l < 32; l += 3)
-                {
-                    Vector3 averageVector = new Vector3((globalList[k][l].x + globalList[k + 1][l].x + globalList[k + 2][l].x) / 3,
-                                                        (globalList[k][l].y + globalList[k + 1][l].y + globalList[k + 2][l].y) / 3,
-                                                        (globalList[k][l].z + globalList[k + 1][l].z + globalList[k + 2][l].z) / 3);
-                    globalList[k][l] = averageVector;
+                for (int l = 0; l < globalList[k].Count; l++ ){
+                    globalList[k][l] = new Vector3((globalList[k][l].x + globalList[k + 1][l].x + globalList[k + 2][l].x) / 3,
+                                                   (globalList[k][l].y + globalList[k + 1][l].y + globalList[k + 2][l].y) / 3,
+                                                   (globalList[k][l].z + globalList[k + 1][l].z + globalList[k + 2][l].z) / 3);
                 }
-            }
+            }*/
         }
         return globalList;
     }
@@ -485,6 +487,10 @@ public class csvReader : MonoBehaviour
         }
     }
 
+    public bool MediapipeOrXsense
+    {
+        get { return mediapipeOrXsense; }
+    }
 
     public List<GameObject> GetGameObjects()
     {

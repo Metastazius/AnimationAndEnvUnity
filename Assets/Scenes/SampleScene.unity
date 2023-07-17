@@ -439,7 +439,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &134287998
 Canvas:
   m_ObjectHideFlags: 0
@@ -1232,15 +1232,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.82
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.82
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.82
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1248,7 +1248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1294,12 +1294,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Y Bot
       objectReference: {fileID: 0}
+    - target: {fileID: 2559285840627121667, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559285840627121667, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559285840627121667, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
       propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169382868667117632, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169382868667117632, guid: 18ef0cafc2dd3de46a75d8efc98de900, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3736,8 +3756,8 @@ MonoBehaviour:
   offsetX: -2.26
   offsetY: 0
   offsetZ: -2.56
-  multW: 4.52
-  multH: -2.58
+  multW: 5
+  multH: -3.1
   minFrameCount: 0
   dropdownMediapipe: {fileID: 1798830924}
   dropdownMediapipeVR: {fileID: 1118821872}
@@ -3748,6 +3768,7 @@ MonoBehaviour:
   mediapipeBtnVR: {fileID: 1388895321}
   xsenseBtnVR: {fileID: 725053477}
   darkgreen: {r: 0.007843138, g: 0.49019608, b: 0, a: 1}
+  mediapipeOrXsense: 1
   text: {fileID: 373345193}
   camManager: {fileID: 732396936}
 --- !u!4 &732396935
