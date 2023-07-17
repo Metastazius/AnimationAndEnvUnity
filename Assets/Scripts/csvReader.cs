@@ -23,7 +23,7 @@ public class csvReader : MonoBehaviour
 
     private List<float> listForMinY;
 
-    private Vector3[] position = new Vector3[33];
+    private List<Vector3> position = new List<Vector3>();
 
     private float nbframes;
 
@@ -31,7 +31,7 @@ public class csvReader : MonoBehaviour
     private GameObject prefabCube, prefabEmpty, prefabLine;
 
     private GameObject lines, people;
-    private bool runExercice = false;
+    public bool runExercice = false;
 
     [SerializeField]
     private float offsetX, offsetY, offsetZ, multW, multH;
@@ -47,7 +47,7 @@ public class csvReader : MonoBehaviour
     [SerializeField]
     private Button mediapipeBtn, xsenseBtn, mediapipeBtnVR, xsenseBtnVR;
     public Color darkgreen;
-    public bool mediapipeOrXsense = true; // true for mediapipe - false for xsense
+    private bool mediapipeOrXsense = true; // true for mediapipe - false for xsense
 
     [SerializeField]
     private TMP_Text text;
@@ -126,21 +126,8 @@ public class csvReader : MonoBehaviour
                 {
                     for (int i = 0; i < pointList.Count; i++)
                     {
-                        if ((currentFrameOnVideo - frameDiff) < (nbframes - frameDiff - ajust))
-                        {
-                            /*for(int j = 0; j <= ajust; j++)
-                            {
-                                position[i] = globalListCam4[currentFrameOnVideo - frameDiff + ajust][i]/ajust;
-                            }*/
-                            position[i] = (globalListCam4[currentFrameOnVideo - frameDiff][i] + globalListCam4[currentFrameOnVideo - frameDiff + 1][i] + globalListCam4[currentFrameOnVideo - frameDiff + 2][i]) / 3.0f;
-                        }
-                        else
-                        {
-                            position[i] = globalListCam4[currentFrameOnVideo - frameDiff][i];
-                        }
-                        //position[i] = globalListCam4[currentFrameOnVideo - frameDiff][i];
-                        gameObjects[i].transform.position = position[i];
-                        GetPositions();
+                        gameObjects[i].transform.position = globalListCam4[currentFrameOnVideo-frameDiff][i];
+                        position[i] = gameObjects[i].transform.position;
                     }
                 }
             }
@@ -160,6 +147,7 @@ public class csvReader : MonoBehaviour
             for(int i = 0; i <pointList.Count; i++)
             {
                 gameObjects[i].transform.position = globalListXsense[n][i];
+                position[i] = gameObjects[i].transform.position;
             }
         }
         
@@ -296,7 +284,8 @@ public class csvReader : MonoBehaviour
 
             camManager.SetClipsList(list);
 
-            
+            InstanciateCube();
+            InstanciateLines();
         }
         else    // Xsense loading
         {
@@ -326,9 +315,6 @@ public class csvReader : MonoBehaviour
 
         if (runExercice)
         {
-            InstanciateCube();
-            InstanciateLines();
-
             text.text = dropdownMediapipe.options[dropdownMediapipe.value].text + " is running";
         }
         else
@@ -434,6 +420,7 @@ public class csvReader : MonoBehaviour
         people.name = "People";
 
         gameObjects.Clear();
+        position.Clear();
         for (int i = 0; i < pointList.Count; i++)
         {
             GameObject cube;
@@ -449,7 +436,9 @@ public class csvReader : MonoBehaviour
             cube.transform.SetParent(people.transform);
             cube.name = i.ToString();
             gameObjects.Add(cube);
+            position.Add(new Vector3());
         }
+        runExercice = true;
     }
 
     void InstanciateLines()
@@ -475,7 +464,7 @@ public class csvReader : MonoBehaviour
         }
     }
 
-    public Vector3[] GetPositions()
+    public List<Vector3> GetPositions()
     {
         if (runExercice)
         {
@@ -483,13 +472,13 @@ public class csvReader : MonoBehaviour
         }
         else
         {
-            return new Vector3[33];
+            return new List<Vector3>();
         }
     }
 
-    public bool MediapipeOrXsense
+    public bool GetMediapipeOrXsense()
     {
-        get { return mediapipeOrXsense; }
+        return mediapipeOrXsense;
     }
 
     public List<GameObject> GetGameObjects()
