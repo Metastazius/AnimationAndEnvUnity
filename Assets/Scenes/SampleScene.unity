@@ -3729,6 +3729,8 @@ GameObject:
   - component: {fileID: 732396935}
   - component: {fileID: 732396934}
   - component: {fileID: 732396936}
+  - component: {fileID: 732396938}
+  - component: {fileID: 732396937}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -3753,6 +3755,7 @@ MonoBehaviour:
   prefabCube: {fileID: 118279375784236610, guid: 5c61381a57d3f4d4bb8a1592df6300a3, type: 3}
   prefabEmpty: {fileID: 1856636315290261747, guid: f40a40880deac6b47aa5023f55ac56a2, type: 3}
   prefabLine: {fileID: 2393243946496338530, guid: 71da7aab907d17c46b26194124ada80d, type: 3}
+  runExercice: 0
   offsetX: -2.26
   offsetY: 0
   offsetZ: -2.56
@@ -3768,7 +3771,6 @@ MonoBehaviour:
   mediapipeBtnVR: {fileID: 1388895321}
   xsenseBtnVR: {fileID: 725053477}
   darkgreen: {r: 0.007843138, g: 0.49019608, b: 0, a: 1}
-  mediapipeOrXsense: 1
   text: {fileID: 373345193}
   camManager: {fileID: 732396936}
 --- !u!4 &732396935
@@ -3811,6 +3813,50 @@ MonoBehaviour:
   frameCount: 0
   citySkybox: {fileID: 2100000, guid: df1ce4438fdf59641a0dca10448c3295, type: 2}
   snowSkybox: {fileID: 2100000, guid: 77602c387a417624a87df11a4c76e9d6, type: 2}
+--- !u!114 &732396937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732396933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4036cdbc12c7d642ae08c1b74f1b448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rParent: {fileID: 0}
+  lParent: {fileID: 0}
+  landmarkPrefab: {fileID: 0}
+  linePrefab: {fileID: 0}
+  headPrefab: {fileID: 0}
+  enableHead: 1
+  multiplier: 10
+  landmarkScale: 1
+  maxSpeed: 50
+  debug_samplespersecond: 0
+--- !u!114 &732396938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732396933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28338e0784185c444a785ff82ce40cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csvreader: {fileID: 732396934}
+  csvReaderGameObject: {fileID: 732396933}
+  angleRightElbow: 0
+  angleRightShoulder: 0
+  angleRightHip: 0
+  angleRightKnee: 0
+  angleLeftElbow: 0
+  angleLeftShoulder: 0
+  angleLeftHip: 0
+  angleLeftKnee: 0
 --- !u!1 &746957608
 GameObject:
   m_ObjectHideFlags: 0

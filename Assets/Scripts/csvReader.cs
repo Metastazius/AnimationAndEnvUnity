@@ -296,10 +296,9 @@ public class csvReader : MonoBehaviour
                 System.IO.FileInfo monfile = new System.IO.FileInfo(file);
                 string name = monfile.Name;
 
-                if(name == "CIIRC_Emilio-055_positions.csv")
-                {
-                    globalListXsense = ReadCSVFile(monfile.FullName);
-                }
+                
+                globalListXsense = ReadCSVFile(monfile.FullName);
+                
             }
 
             for(int i=1; i<globalListXsense.Count; i++)
